@@ -3,7 +3,7 @@
 This is a Brainlife wrapper App for `dipy_fit_dti` workflow. This single wrapper is exposed through an apps registered on [Brainlife.io](https://brainlife.io).
 
 - More information about DIPY : [https://dipy.org/](https://dipy.org/)
-- More information about the command line `dipy_mask`: [Command line Reference](https://dipy.org/documentation/latest/reference_cmd/dipy_fit_dti/)
+- More information about the command line `dipy_fit_dti`: [Command line Reference](https://dipy.org/documentation/latest/reference_cmd/dipy_fit_dti/)
 
 ## Running the App
 
