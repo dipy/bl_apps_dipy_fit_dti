@@ -3,6 +3,49 @@
 
 # Dipy Reconstruction Diffusion MRI using DTI
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Fits the diffusion tensor to DWI within a brain mask with DIPY (dipy_fit_dti, weighted least squares) and outputs FA, MD, RD, AD and other DTI maps.**
+
+Runs dipy_fit_dti (DIPY 1.1.1) on a DWI with its bvals, bvecs and a brain mask. Use it to compute standard DTI scalar maps for tract profiling or group analyses. Needs a brain mask aligned to the DWI; b0_threshold sets which volumes count as b=0.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/dwi` · `neuro/mask` |
+| 📤 **Outputs** | `neuro/tensor` |
+| 🐳 **Container** | `brainlife/dipy:1.1.1` |
+| ⚙️ **Resources** | 8 CPUs |
+| 🔗 **Run it** | [doi.org/10.25663/bl.app.60](https://doi.org/10.25663/bl.app.60) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `dwi` | `neuro/dwi` | yes | DWI image with bvals and bvecs. |
+| `mask` | `neuro/mask` (brain) | yes | Brain mask in the same space as the DWI; the tensor is fitted only inside it. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `neuro/tensor` | DTI maps written by dipy_fit_dti (tensor, FA, MD, RD, AD, colour FA and related maps). |
+
+<details>
+<summary><b>⚙️ Parameters</b> (2)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `b0_threshold` | number | `50` | Threshold used to find b=0 directions |
+| `bvecs_tol` | number | `0.01` | Threshold used to check that norm(bvec) = 1 +/- bvecs_tolb-vectors are unit vectors |
+
+</details>
+
+📚 **References used by this App:**
+- Garyfallidis E, et al. Dipy, a library for the analysis of diffusion MRI data. Front Neuroinform 8:8 (2014). [doi:10.3389/fninf.2014.00008](https://doi.org/10.3389/fninf.2014.00008)
+- Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+
+<!-- brainlife-app:end -->
+
 The App uses the Diffusion Tensor Imaging (DTI) method to do a reconstruction of the diffusion-weighted magnetic resonance imaging data.
 
 ### Authors
